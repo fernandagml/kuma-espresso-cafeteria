@@ -1,0 +1,13 @@
+.figure{
+    width: 140px;
+    height: 120px;
+}
+
+.figure-img{
+    width: 120px;
+    height: 140px;
+}
+
+.figure-caption{
+    color: rgb(0, 0, 0);
+}
