@@ -1,0 +1,260 @@
+/* produto-detalhe.css */
+
+/* Configurações Gerais de Container */
+.product-detail-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.product-detail-container *, 
+.product-detail-container *::before, 
+.product-detail-container *::after {
+    box-sizing: border-box;
+}
+
+/* SEÇÃO PRINCIPAL: IMAGEM + INFORMAÇÕES */
+.product-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Responsividade para Computador (Lado a Lado) */
+@media (min-width: 768px) {
+    .product-main-info {
+        flex-direction: row;
+    }
+}
+
+/* Container da Imagem (Lado Esquerdo) */
+.product-image-container {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .product-image-container {
+        width: 50%;
+    }
+}
+
+.product-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Proporção retangular alta parecida com o rascunho */
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 1.5rem; /* Bordas bem arredondadas conforme o desenho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+/* Dados do Produto (Lado Direito) */
+.product-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .product-data {
+        width: 50%;
+        padding-left: 1rem;
+    }
+}
+
+.product-detail-name {
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: #1f2937;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-style: italic; /* Estilo manuscrito/itálico do rascunho */
+}
+
+.product-detail-price {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.product-description-short {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.btn-see-more {
+    background: none;
+    border: none;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 3rem;
+    width: max-content;
+}
+
+.btn-see-more span {
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+.actions-container {
+    margin-top: auto; /* Empurra o botão para baixo se houver espaço */
+}
+
+.btn-add-cart {
+    background-color: #ffffff;
+    border: 1px solid #9ca3af;
+    color: #374151;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add-cart:hover {
+    background-color: #f9fafb;
+    border-color: #4b5563;
+}
+
+/* SEÇÃO DE AVALIAÇÕES */
+.reviews-section {
+    width: 100%;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 2rem;
+}
+
+/* Área de Adicionar Comentário */
+.add-comment-box {
+    margin-bottom: 2.5rem;
+}
+
+.comment-input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .comment-input-row {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.input-comment {
+    width: 100%;
+    border: 1px solid #9ca3af;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 4px;
+    outline: none;
+}
+
+@media (min-width: 640px) {
+    .input-comment {
+        width: 70%;
+    }
+}
+
+.star-rating-input {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star-icon {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+.star-icon:hover {
+    color: #f59e0b;
+}
+
+.btn-submit-comment {
+    background-color: #ffffff;
+    border: 1px solid #9ca3af;
+    padding: 0.4rem 1.25rem;
+    font-size: 0.875rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-submit-comment:hover {
+    background-color: #f3f4f6;
+}
+
+/* Lista de Comentários Abaixo */
+.reviews-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title-star {
+    font-size: 1.25rem;
+}
+
+.review-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.user-comment-text {
+    font-size: 0.935rem;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.4;
+}
