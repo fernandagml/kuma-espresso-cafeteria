@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre Nós - Kuma Espresso</title>
+  <link rel="stylesheet" href="/static/styles/layout.css" />
+  <style>
+    main{max-width:1100px;margin:0 auto;padding:140px 20px 40px;}
+    .sobre-hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;margin-bottom:26px;}
+    @media(min-width:860px){.sobre-hero{grid-template-columns:1.2fr .8fr;}}
+    .kicker{color:#8B5A2B;font-weight:700;letter-spacing:.4px;}
+    h1{font-size:2.1rem;line-height:1.1;margin:6px 0 10px;}
+    .sobre-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:18px 18px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    .sobre-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px;}
+    @media(min-width:860px){.sobre-grid{grid-template-columns:1fr 1fr;}}
+    .tag{display:inline-flex;gap:8px;align-items:center;padding:10px 12px;border-radius:999px;background:#f7f0e6;border:1px solid rgba(139,90,43,.25);font-weight:600;color:#2b1810}
+    .list{margin:10px 0 0 18px;}
+    .list li{margin:8px 0;}
+    .logo-wrap{display:flex;justify-content:center;align-items:center;}
+    .logo-wrap img{max-width:260px;width:100%;height:auto;filter:drop-shadow(0 10px 20px rgba(0,0,0,.15));}
+    .cta{margin-top:18px;font-weight:600;color:#2b1810}
+  </style>
+</head>
+<body>
+  <header class="header-transparente">
+    <nav class="nav-container">
+      <ul class="menu-esquerdo">
+        <li><a href="/">Início</a></li>
+        <li><a href="/sobre">Sobre Nós</a></li>
+      </ul>
+
+      <div class="logo-centro">
+        <img src="static/img/logo-transparente.png" alt="Kuma Espresso" />
+      </div>
+
+      <div class="lado-direito-container">
+        <ul class="menu-direito">
+          <li class="dropdown">
+            <a href="#">Categorias <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Expressos</a></li>
+              <li><a href="#">Lattes</a></li>
+              <li><a href="#">Grãos</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Catálogo</a></li>
+        </ul>
+
+        <div class="icones-usuario">
+          <a href="#" title="Carrinho"><i class="fas fa-shopping-cart"></i></a>
+          <a href="#" title="Login"><i class="fas fa-user-circle"></i></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="sobre-hero">
+      <div>
+        <div class="kicker">Kuma Espresso • Nossa história</div>
+        <h1>Um nome fofo. Um café com carinho.</h1>
+        <div class="sobre-card">
+          <p style="font-size:1.05rem;line-height:1.65;">
+            <strong>Kuma Espresso</strong> é inspirado no significado de <em>“kuma”</em>, que em japonês quer dizer <strong>urso</strong>.
+            Nosso logo também abraça essa ideia: um <strong>urso polar</strong>, bem carismático, que combina com o jeito acolhedor do nosso café.
+          </p>
+
+          <div class="sobre-grid">
+            <div>
+              <div class="tag"><i class="fa-solid fa-bear" aria-hidden="true"></i> Nome com significado</div>
+              <ul class="list">
+                <li>“Kuma” = urso em japonês</li>
+                <li>Logo: urso polar (fofo e único)</li>
+              </ul>
+            </div>
+            <div>
+              <div class="tag"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Feito por quem ama</div>
+              <ul class="list">
+                <li>Somos <strong>4 sócios</strong></li>
+                <li>A amizade começou no <strong>Senai</strong>, em tempo de colégio</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cta">
+            Cada xícara é pensada pra trazer aquele sentimento de “mais um encontro com amigos”.
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-wrap">
+        <img src="static/img/logo.png" alt="Logo Kuma Espresso - urso polar" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-esquerda">
+        <h3>Faça parte da nossa equipe</h3>
+        <button type="button">Junte-se a nós!</button>
+      </div>
+
+      <div class="footer-centro">
+        <img src="static/img/logo-transparente.png" alt="Kuma Espresso" class="logo-footer" />
+        <p>@2026 todos direitos reservados</p>
+      </div>
+
+      <div class="footer-direita">
+        <h3>Contate-nos</h3>
+        <div class="bolinhas-sociais">
+          <a href="#" title="Instagram"><i class="fas fa-instagram"></i></a>
+          <a href="#" title="WhatsApp"><i class="fas fa-whatsapp"></i></a>
+          <a href="#" title="Telefone"><i class="fas fa-phone"></i></a>
+          <a href="#" title="E-mail"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
