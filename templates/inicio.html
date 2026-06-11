@@ -26,37 +26,48 @@
 
     <!-- Categorias -->
     <section>
-        <h1>Destaques</h1>
+        <h1>Especialidades</h1>
         {% for categoria in categorias %}
-        <figure class="figure">
-            <img src="{{ categoria.imagem_categoria }}" class="figure-img" alt="{{ categoria.categoria }}">
-            <figcaption class="figure-caption">{{ categoria.categoria }}</figcaption>
-        </figure>
+        <a href="/produtos/{{ categoria.id_categoria }}">
+            <figure class="figure">
+                <img src="{{ categoria.imagem_categoria }}" class="figure-img" alt="{{ categoria.categoria }}">
+                <figcaption class="figure-caption">{{ categoria.categoria }}</figcaption>
+            </figure>
+        </a>
         {% endfor %}
     </section>
 
     <!-- Sobre a loja -->
+    
+    <section class="sobre_nos_container">
+
+   <h1 class="titulo-sobre">Sobre Nós</h1>
+
     <section class="sobre_nos">
+
+         
         <div class="infos-esquerda">
-            <h3>Info 1</h3>
-            <p>Bla bla bla</p>
-            <h3>Info 3</h3>
-            <p>Bla bla bla</p>
+            <h3>Grãos Selecionados</h3>
+            <p>Escolhemos cuidadosamente cada grão para oferecer uma experiência única em cada xícara.</p>
+
+            <h3>Torra Artesanal</h3>
+            <p>Processos controlados para preservar aromas e destacar as melhores notas do café.</p>
         </div>
 
-        <img src="" alt="">
+        <img src="../static/img/copo-base.png" alt="Kuma Espresso">
 
         <div class="infos-direita">
-            <h3>Info 2</h3>
-            <p>Bla bla bla</p>
-            <h3>Info 4</h3>
-            <p>Bla bla bla</p>
+            <h3>Qualidade Premium</h3>
+            <p>Ingredientes selecionados e preparo cuidadoso para garantir excelência em cada bebida.</p>
+
+            <h3>Experiência Única</h3>
+            <p>Mais que café, criamos momentos especiais para acompanhar o seu dia.</p>
         </div>
     </section>
 
+</section>
     <!-- Slogan -->
     <section class="slogan">
-        <h1>SLOGAN AQUI</h1>
         <img src="" alt="">
     </section>
 
