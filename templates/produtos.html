@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="../static/styles/produtos.css">
 
-
-    
     <section class="product-banner">
-        <h1 class="banner-title">PRODUTO</h1>
+        {% if produtos %}
+        <h1 class="banner-title">{{ produtos[0].categoria }}</h1>
+        {% endif %}
     </section>
 
     <main class="main-container">
@@ -16,26 +16,12 @@
             <div class="filter-section">
                 <h3 class="section-title">Categorias</h3>
                 <div class="checkbox-group">
+                    {% for filtro in filtros %}
                     <label class="checkbox-label">
                         <input type="checkbox" class="custom-checkbox">
-                        <span>Categoria 1</span>
+                        <span>{{ filtro.nome_filtro }}</span>
                     </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Categoria 2</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Categoria 3</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Categoria 4</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Categoria 5</span>
-                    </label>
+                    {% endfor %}
                 </div>
             </div>
 

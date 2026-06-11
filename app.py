@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from model.categorias import recuperar_categorias as rc
 from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
+from model.filtros import recuperar_filtros
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ def index():
 @app.route("/produtos/<id_categoria>")
 def pagina_produtos(id_categoria):
     produtos = recuperar_produtos_por_categoria(id_categoria)
-    return render_template("produtos.html", produtos = produtos)
+    filtros = recuperar_filtros()
+    return render_template("produtos.html", produtos = produtos, filtros = filtros)
 
 @app.route("/produto/<id_produto>")
 def pagina_produto(id_produto):
