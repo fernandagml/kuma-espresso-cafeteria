@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from model.categorias import recuperar_categorias as rc
+from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
+from model.filtros import recuperar_filtros
 
 app = Flask(__name__)
 
@@ -7,6 +9,17 @@ app = Flask(__name__)
 def index():
     categorias = rc()
     return render_template("inicio.html", categorias = categorias)
+
+@app.route("/produtos/<id_categoria>")
+def pagina_produtos(id_categoria):
+    produtos = recuperar_produtos_por_categoria(id_categoria)
+    filtros = recuperar_filtros()
+    return render_template("produtos.html", produtos = produtos, filtros = filtros)
+
+@app.route("/produto/<id_produto>")
+def pagina_produto(id_produto):
+    produto = recuperar_produto(id_produto)
+    return render_template("produto_unico.html", produto = produto)
 
 if __name__ == "__main__":
     app.run(debug=True)
