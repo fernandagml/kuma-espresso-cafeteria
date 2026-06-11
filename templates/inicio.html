@@ -27,22 +27,12 @@
     <!-- Categorias -->
     <section>
         <h1>Destaques</h1>
+        {% for categoria in categorias %}
         <figure class="figure">
-            <img src="../static/img/Cafés - categoria_semfundo.png" class="figure-img" alt="Cafés">
-            <figcaption class="figure-caption">Cafés</figcaption>
+            <img src="{{ categoria.imagem_categoria }}" class="figure-img" alt="{{ categoria.categoria }}">
+            <figcaption class="figure-caption">{{ categoria.categoria }}</figcaption>
         </figure>
-        <figure class="figure">
-            <img src="../static/img/Bebidas doces - semfundo.png" class="figure-img" alt="Bebidas doces">
-            <figcaption class="figure-caption">Bebidas doces</figcaption>
-        </figure>
-        <figure class="figure">
-            <img src="../static/img/Especiais - semfundo.png" class="figure-img" alt="Especiais">
-            <figcaption class="figure-caption">Especiais</figcaption>
-        </figure>
-        <figure class="figure">
-            <img src="../static/img/doces - semfundo.png" class="figure-img" alt="Doces">
-            <figcaption class="figure-caption">Doces</figcaption>
-        </figure>
+        {% endfor %}
     </section>
 
     <!-- Sobre a loja -->
