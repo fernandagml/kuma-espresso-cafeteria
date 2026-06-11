@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
-@app.route('/sobre')
-def sobre():
-    return render_template('sobre.html')
+@app.route('/como-chegar')
+def como_chegar():
+    return render_template('como_chegar.html')
+
 
 app.run(debug=True)
