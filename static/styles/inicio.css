@@ -182,26 +182,37 @@ section:nth-of-type(2) .figure:hover {
 .infos-direita { text-align: left; flex: 1; max-width: 360px; }
 
 .sobre_nos h3 {
-    color: #2b1810;
+    color: #fffdfb;
     font-size: 22px;
     margin-bottom: 10px;
     font-family: 'Georgia', serif;
 }
 
 .sobre_nos p {
-    color: #665544;
+    color: #d8d0c8;
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 40px;
 }
 
 .sobre_nos > img {
-    width: 340px;
-    height: 340px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 6px solid #ffffff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 420px;
+    max-width: 100%;
+    height: auto;
+
+    /* remove aparência de círculo */
+    border-radius: 0;
+    border: none;
+
+    /* destaca o produto */
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
+
+    /* efeito visual mais elegante */
+    transition: transform 0.3s ease;
+}
+
+.sobre_nos > img:hover {
+    transform: translateY(-8px);
 }
 
 /* ==========================================================================
