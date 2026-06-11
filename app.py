@@ -19,5 +19,11 @@ def pagina_produto(id_produto):
     produto = recuperar_produto(id_produto)
     return render_template("produto_unico.html", produto = produto)
 
+
+@app.route("/como_chegar")
+def pagina_como_chegar():
+    return render_template("como_chegar.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
