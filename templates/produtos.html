@@ -73,17 +73,19 @@
 
             <div class="products-grid">
                 {% for produto in produtos %}
-                <div class="product-card">
-                    <div class="product-image-placeholder">
-                        <span>
-                            <img src="{{ produto.imagem_produto }}" alt="{{ produto.nome_produto }}">
-                        </span>
+                <a href="/produto/{{ produto.id_produto }}">
+                    <div class="product-card">
+                        <div class="product-image-placeholder">
+                            <span>
+                                <img src="{{ produto.imagem_produto }}" alt="{{ produto.nome_produto }}">
+                            </span>
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-name">{{ produto.nome_produto }}</h4>
+                            <p class="product-price">{{ produto.preco_produto }}</p>
+                        </div>
                     </div>
-                    <div class="product-info">
-                        <h4 class="product-name">{{ produto.nome_produto }}</h4>
-                        <p class="product-price">{{ produto.preco_produto }}</p>
-                    </div>
-                </div>
+                </a>
                 {% endfor %}
             </div>
         </section>
