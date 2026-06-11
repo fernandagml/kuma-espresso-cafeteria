@@ -19,7 +19,7 @@ def recuperar_produtos_por_categoria(id):
 
     try:
         conexao, cursor = conectar()
-        cursor.execute("SELECT id_produto, nome_produto, preco_produto, descricao_produto, imagem_produto, id_categoria FROM tb_produtos WHERE id_categoria = %s;", (id, ))
+        cursor.execute("SELECT tb_produtos.id_produto, tb_produtos.nome_produto, tb_produtos.preco_produto, tb_produtos.descricao_produto, tb_produtos.imagem_produto, tb_categorias_produtos.id_categoria, tb_categorias_produtos.categoria FROM tb_produtos INNER JOIN tb_categorias_produtos ON tb_produtos.id_categoria = tb_categorias_produtos.id_categoria WHERE tb_produtos.id_categoria = %s;", (id, ))
         produtos_por_categoria = cursor.fetchall()
         conexao.close()
         return produtos_por_categoria
