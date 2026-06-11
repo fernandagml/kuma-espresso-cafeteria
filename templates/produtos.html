@@ -72,19 +72,19 @@
             </div>
 
             <div class="products-grid">
-                
+                {% for produto in produtos %}
                 <div class="product-card">
                     <div class="product-image-placeholder">
                         <span>
-                            <img src="../static/img/milkshake-chocolateComNozes.jpg" alt="Milkshake Chocolate com Nozes">
+                            <img src="{{ produto.imagem_produto }}" alt="{{ produto.nome_produto }}">
                         </span>
                     </div>
                     <div class="product-info">
-                        <h4 class="product-name">Nome do Produto 1</h4>
-                        <p class="product-price">R$ 99,90</p>
+                        <h4 class="product-name">{{ produto.nome_produto }}</h4>
+                        <p class="product-price">{{ produto.preco_produto }}</p>
                     </div>
                 </div>
-
+                {% endfor %}
             </div>
         </section>
         
