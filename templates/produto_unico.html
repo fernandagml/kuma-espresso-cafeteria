@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../static/styles/unico.css">
+<script src="../static/js/ver-mais.js" defer></script>
 
 <main class="product-detail-container">
     
@@ -6,7 +7,9 @@
         
         <div class="product-image-container">
             <div class="product-image-placeholder">
-                <span>IMG</span>
+                <span class="img-produto">
+                    IMG
+                </span>
             </div>
         </div>
 
@@ -18,7 +21,15 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id convallis magna. Proin luctus ac tortor ac feugiat.</p>
             </div>
             
-            <button class="btn-see-more">VER MAIS <span>v</span></button>
+            <div id="descricao-extra" class="descricao-oculta">
+                <p>
+                    Aqui fica a descrição completa do produto. Você pode colocar
+                    especificações, ingredientes, dimensões, modo de uso,
+                    informações nutricionais ou qualquer outro detalhe.
+                </p>
+            </div>
+
+            <button class="btn-see-more">VER MAIS</button>
             
             <div class="actions-container">
                 <button class="btn-add-cart">Adicionar ao carrinho</button>
@@ -30,6 +41,10 @@
         
         <div class="add-comment-box">
             <div class="comment-input-row">
+                <div class="comentario-grid">
+                    <h1>Comentários</h1>
+                    <p>Nos dê um feedback sobre o produto e sua experiência com a loja!</p>
+                </div>
                 <input type="text" placeholder="ADICIONAR COMENTÁRIO" class="input-comment">
                 <div class="star-rating-input">
                     <span class="star-icon">☆</span>
@@ -43,7 +58,7 @@
         </div>
 
         <div class="reviews-list-container">
-            <h2 class="reviews-title">Avaliações <span class="title-star">☆</span></h2>
+            <h2 class="reviews-title">Avaliações!</h2>
             
             <div class="review-item">
                 <div class="user-avatar">
