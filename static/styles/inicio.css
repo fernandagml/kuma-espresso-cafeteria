@@ -260,9 +260,7 @@ section:nth-of-type(2) h1 {
         height: 150px;
     }
 }
-/* ==========================================================================
-   3. SOBRE NÓS / INFO LOJA (ESPELHADO PREMIUM)
-   ========================================================================== */
+/* 3. SOBRE NÓS / INFO LOJA (ESPELHADO PREMIUM) */
 .sobre_nos_container {
     background: linear-gradient(
         180deg,
@@ -363,9 +361,7 @@ section:nth-of-type(2) h1 {
 .sobre_nos img:hover {
     transform: translateY(-10px);
 }
-/* ==========================================================================
-   4. SLOGAN (OUTDOOR CLEAN ANTES DO FOOTER)
-   ========================================================================== */
+/* 4. SLOGAN (OUTDOOR CLEAN ANTES DO FOOTER) */
 .slogan {
     width: 100%;
     background-color: #f7f5f0;
