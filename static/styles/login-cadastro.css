@@ -1,0 +1,193 @@
+/* LOGIN E CADASTRO */
+
+.pag_login,
+.pag_cad {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 80px;
+    background: #473327;
+}
+
+/* TÍTULO */
+
+.pag_login h1,
+.pag_cad h1 {
+    margin-bottom: 90px;
+    color: #FCFAF8;
+    font-size: 42px;
+    font-family: Georgia, serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.pag_login h1::after,
+.pag_cad h1::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #D4B483;
+    border-radius: 999px;
+}
+
+/* FORMULÁRIO */
+
+.pag_login form,
+.pag_cad form {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    background: #fff;
+    border-radius: 40px;
+    padding: 100px 50px 45px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pag_cad form {
+    max-width: 900px;
+}
+
+/* LOGO */
+
+.pag_login form span,
+.pag_cad form span {
+    position: absolute;
+    top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pag_login form span img,
+.pag_cad form span img {
+    width: 100px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,.15));
+}
+
+/* CAMPOS */
+
+.campos {
+    width: 100%;
+}
+
+.pag_login .campos {
+    display: flex;
+    flex-direction: column;
+}
+
+.pag_cad .campos {
+    display: flex;
+    gap: 40px;
+}
+
+.campos__esquerda,
+.campos__direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.campos label {
+    display: block;
+    margin: 15px 0 8px;
+    color: #5C3A21;
+    font-size: 15px;
+    font-family: Georgia, serif;
+}
+
+.campos input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #E8DFD5;
+    border-radius: 15px;
+    background: #FCFAF8;
+    font-size: 15px;
+    transition: all .3s ease;
+}
+
+.campos input:focus {
+    outline: none;
+    border-color: #D4B483;
+    box-shadow: 0 0 0 4px rgba(212,180,131,.15);
+}
+
+/* BOTÃO */
+
+.pag_login button,
+.pag_cad button {
+    margin-top: 35px;
+    width: 220px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: #5C3A21;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.pag_login button:hover,
+.pag_cad button:hover {
+    background: #D4B483;
+    color: #2A1E17;
+    transform: translateY(-3px);
+}
+
+/* LINKS */
+
+.pag_login > a,
+.pag_cad > a {
+    margin-top: 25px;
+    color: #FCFAF8;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.pag_login > a:hover,
+.pag_cad > a:hover {
+    color: #8B5A2B;
+    text-decoration: underline;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+    .pag_login h1,
+    .pag_cad h1 {
+        font-size: 34px;
+    }
+
+    .pag_login form,
+    .pag_cad form {
+        padding: 90px 25px 35px;
+    }
+
+    .pag_cad .campos {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .pag_login form span img,
+    .pag_cad form span img {
+        width: 80px;
+    }
+
+    .pag_login button,
+    .pag_cad button {
+        width: 100%;
+    }
+}
+
