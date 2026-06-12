@@ -66,5 +66,12 @@ def sair():
     return redirect("/")
 
 
+@app.context_processor
+def carregar_categorias_menu():
+    return {
+        "categorias_menu": rc()
+    }
+
+
 if __name__ == "__main__":
     app.run(debug=True)
