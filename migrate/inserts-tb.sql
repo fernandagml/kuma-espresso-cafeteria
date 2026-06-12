@@ -18,3 +18,6 @@ VALUES ("Café Preto", 8.90, "descricao", "../static/img/cafe-preto.jpg", 1),
         
 INSERT INTO tb_filtros (nome_filtro)
 VALUES ("Sem açucar"), ("Sem lactose"), ("Gelado"), ("Com leite"), ("Milkshake");
+
+INSERT INTO tb_filtros_produtos (id_produto, id_filtro)
+VALUES (3, 4);
