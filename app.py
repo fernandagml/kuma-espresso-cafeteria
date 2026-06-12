@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session
 from model.categorias import recuperar_categorias as rc
 from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
 from model.usuarios import cadastrar, logar
@@ -8,6 +8,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    if "usuario_logado" in session:
+        session["usuario_logado"]["email_usuario"]["nome_usuario"]
+
     categorias = rc()
     return render_template("inicio.html", categorias = categorias)
 
@@ -31,13 +34,33 @@ def cadastrando():
 
 @app.route("/cadastro/post", methods=["POST"])
 def cadastro_usuario():
-    email_user = request.form.get("email_usuario")
-    senha = request.form.get("senha_usuario")
+    nome = request.form.get("nome")
+    email_user = request.form.get("email")
+    tel = request.form.get("tel")
+    end = request.form.get("endereco")
+    senha = request.form.get("senha")
 
-    if cadastrar(email_user, senha):
+    if cadastrar(nome, email_user, tel, end, senha):
         return render_template("login.html")
     else:
         return redirect("/")
+    
+@app.route("/login")
+def autenticar():
+    return render_template("login.html")
+
+@app.route("/login/usuario", methods=["POST"])
+def logar_usuario():
+    email_user = request.form.get("email_usuario")
+    senha = request.form.get("senha_usuario")
+
+    usuario_cad = logar(email_user, senha)
+
+    if usuario_cad:
+        session["usuario_logado"] = usuario_cad
+        return redirect("/")
+    else:
+        return redirect("/login")
 
 
 if __name__ == "__main__":
