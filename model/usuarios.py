@@ -14,7 +14,7 @@ def cadastrar (nome_usuario, email, telefone, endereco, senha):
 def logar(email:str, senha:str) -> dict:
     try:
         conexao, cursor = conectar()
-        cursor.execute("SELECT email_usuario, senha_usuario from tb_usuarios WHERE email_usuario = %s and senha_usuario = %s;", [email, senha])
+        cursor.execute("SELECT email_usuario, nome_usuario from tb_usuarios WHERE email_usuario = %s and senha_usuario = %s;", [email, senha])
         resultado = cursor.fetchone()
         conexao.close()
         return resultado

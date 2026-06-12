@@ -9,10 +9,6 @@ app.secret_key = "cafeteria_kuma_espresso_chave"
 
 @app.route("/")
 def index():
-    if "usuario_logado" in session:
-        session["usuario_logado"]["email_usuario"]
-        ################ session["usuario_logado"]["nome_usuario"] ######################################
-
     categorias = rc()
     return render_template("inicio.html", categorias = categorias)
 
@@ -56,10 +52,10 @@ def logar_usuario():
     email_user = request.form.get("email")
     senha = request.form.get("senha")
 
-    usuario_cad = logar(email_user, senha)
+    usuario= logar(email_user, senha)
 
-    if usuario_cad:
-        session["usuario_logado"] = usuario_cad
+    if usuario:
+        session["usuario_logado"] = usuario
         return redirect("/")
     else:
         return redirect("/cadastro")
