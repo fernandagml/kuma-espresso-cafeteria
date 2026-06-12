@@ -1,130 +1,186 @@
-/* produtos.css */
-
-/* Configurações Gerais e Fontes */
-.main-container {
-    width: 100%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 3rem;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    box-sizing: border-box;
+body{
+    background: linear-gradient(
+        to bottom,
+        #2A1E17 0px,
+        #2A1E17 120px,
+        #f8f3ee 350px,
+        #fdfaf7 100%
+    );
 }
 
-.main-container *, .main-container *::before, .main-container *::after {
-    box-sizing: border-box;
+/* CONTAINER */
+
+.main-container{
+    max-width:1400px;
+    margin:0 auto;
+    padding:0 40px 80px;
 }
 
-/* BANNER COMPLETO (De fora a fora na tela) */
-.product-banner-full {
-    width: 100%;
-    background-color: #f3f4f6;
-    border-top: 1px solid #d1d5db;
-    border-bottom: 1px solid #d1d5db;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
+/* BANNER */
+
+.product-banner-full{
+    background:linear-gradient(
+        135deg,
+        #2A1E17 0%,
+        #3B281D 100%
+    );
+    padding:80px 20px;
+    margin-bottom:60px;
+    text-align:center;
 }
 
-.banner-title {
-    font-size: 2.25rem;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    color: #374151;
-    text-transform: uppercase;
-    margin: 0;
+
+.banner-title{
+    color:#F8F3EE;
+    font-size:42px;
+    font-family:Georgia, serif;
+    font-weight:500;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    position:relative;
 }
 
-/* CONTADOR DE RESULTADOS */
-.results-count {
-    margin-bottom: 1.5rem;
-    font-size: 0.875rem;
-    font-style: italic;
-    color: #6b7280;
+.banner-subtitle{
+    color:#F8F3EE;
+    font-size:18px;
+    font-family:Georgia, serif;
+    font-weight:500;
+    letter-spacing:4px;
+    position:relative;
 }
 
-.results-count .highlight {
-    font-weight: 500;
-    color: #374151;
+
+.banner-title::after{
+    content:"";
+    display:block;
+    width:90px;
+    height:3px;
+    margin:18px auto 0;
+    background:#D4B483;
+    border-radius:999px;
 }
 
-/* GRID DE PRODUTOS EXPANDIDO (Responsivo) */
-.products-grid-full {
-    display: grid;
-    /* Padrão para celular: 1 coluna */
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1.5rem;
+/* RESULTADOS */
+
+.results-count{
+    margin-bottom:30px;
+    color:#777;
+    font-style:italic;
+    font-size:15px;
 }
 
-/* Para telas pequenas/médias (Ex: Tablets): 2 colunas */
-@media (min-width: 640px) {
-    .products-grid-full {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+.results-count .highlight{
+    color:#8B5A2B;
+    font-weight:700;
+}
+
+/* GRID */
+
+.products-grid-full{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+
+.product-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.08);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.12);
+}
+
+/* IMAGEM */
+
+.product-image-placeholder{
+    width:100%;
+    height:260px;
+    background:#f8f3ee;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product-image-placeholder img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:transform .5s ease;
+}
+
+.product-card:hover .product-image-placeholder img{
+    transform:scale(1.05);
+}
+
+.product-image-placeholder span{
+    color:#9c8b7a;
+    font-size:14px;
+}
+
+/* INFORMAÇÕES */
+
+.product-info{
+    padding:22px;
+}
+
+.product-name{
+    color:#2A1E17;
+    font-family:Georgia, serif;
+    font-size:18px;
+    font-weight:600;
+    margin:0 0 10px;
+}
+
+.product-price{
+    color:#8B5A2B;
+    font-size:20px;
+    font-weight:700;
+    margin:0;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1200px){
+    .products-grid-full{
+        grid-template-columns:repeat(3,1fr);
     }
 }
 
-/* Para telas médias/grandes (Ex: Notebooks convencionais): 3 colunas */
-@media (min-width: 1024px) {
-    .products-grid-full {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+@media(max-width:900px){
+    .products-grid-full{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .main-container{
+        padding:0 20px 60px;
     }
 }
 
-/* Para telas grandes (Monitores e computadores): 4 colunas por linha */
-@media (min-width: 1200px) {
-    .products-grid-full {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+@media(max-width:600px){
+    .products-grid-full{
+        grid-template-columns:1fr;
     }
-}
 
-/* CARD DE PRODUTO */
-.product-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.2s;
-}
+    .banner-title{
+        font-size:32px;
+    }
 
-.product-card:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.product-image-placeholder {
-    aspect-ratio: 1 / 1;
-    background-color: #f3f4f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #9ca3af;
-    font-size: 0.75rem;
-}
-
-.product-info {
-    padding: 1rem;
-    border-top: 1px solid #f3f4f6;
-}
-
-.product-name {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #1f2937;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.product-price {
-    color: #4b5563;
-    font-weight: 700;
-    margin-top: 0.25rem;
-    margin-bottom: 0;
-    font-size: 0.875rem;
+    .product-image-placeholder{
+        height:220px;
+    }
 }

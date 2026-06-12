@@ -69,6 +69,13 @@ def sair():
     return redirect("/")
 
 
+@app.context_processor
+def carregar_categorias_menu():
+    return {
+        "categorias_menu": rc()
+    }
+
+
 @app.route("/comentario/post/<id_produto>", methods=["POST"])
 def comentar(id_produto):
     comentario = request.form.get("comentario")

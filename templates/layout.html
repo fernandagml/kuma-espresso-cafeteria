@@ -6,6 +6,7 @@
     <title>Kuma Espresso</title>
     <link rel="stylesheet" href="/static/styles/layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../static/js/carrossel.js" defer></script>
 
     <script src="../static/js/comentario.js" defer></script>
 </head>
@@ -15,8 +16,8 @@
         <nav class="nav-container">
             
             <ul class="menu-esquerdo">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/#sobre_nos">Sobre Nós</a></li>
             </ul>
 
             <div class="logo-centro">
@@ -26,13 +27,21 @@
             <div class="lado-direito-container">
                 <ul class="menu-direito">
                     <li class="dropdown">
-                        <a href="#">Categorias <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Expressos</a></li>
-                            <li><a href="#">Lattes</a></li>
-                            <li><a href="#">Grãos</a></li>
-                        </ul>
-                    </li>
+                    <a href="#">
+                        Categorias
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        {% for categoria in categorias_menu %}
+                        <li>
+                            <a href="/produtos/{{ categoria.id_categoria }}">
+                                {{ categoria.categoria }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
                     <li><a href="#">Catálogo</a></li>
                 </ul>
 
