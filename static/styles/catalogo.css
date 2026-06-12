@@ -1,4 +1,4 @@
-/* style.css */
+/* produtos.css */
 
 /* Configurações Gerais e Fontes */
 .main-container {
@@ -8,24 +8,23 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 3rem;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     box-sizing: border-box;
 }
 
-/* Garante consistência de espaçamentos internos */
 .main-container *, .main-container *::before, .main-container *::after {
     box-sizing: border-box;
 }
 
-/* BANNER CENTRALIZADO */
-.product-banner {
+/* BANNER COMPLETO (De fora a fora na tela) */
+.product-banner-full {
     width: 100%;
     background-color: #f3f4f6;
-    border: 1px solid #d1d5db;
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+    border-top: 1px solid #d1d5db;
+    border-bottom: 1px solid #d1d5db;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,105 +36,13 @@
     font-weight: 300;
     letter-spacing: 0.1em;
     color: #374151;
-    text-align: center;
     text-transform: uppercase;
     margin: 0;
 }
 
-/* CORPO PRINCIPAL: LAYOUT SIDEBAR + GRID */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* Media Query para telas maiores (computadores) */
-@media (min-width: 768px) {
-    .content-wrapper {
-        flex-direction: row;
-    }
-}
-
-/* SIDEBAR DE FILTROS */
-.sidebar-filters {
-    width: 100%;
-}
-
-@media (min-width: 768px) {
-    .sidebar-filters {
-        width: 25%;
-        flex-shrink: 0;
-    }
-}
-
-.sidebar-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #1f2937;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin: 0;
-}
-
-.sidebar-divider {
-    border: 0;
-    border-top: 1px solid #d1d5db;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
-
-.filter-section {
-    margin-bottom: 1.5rem;
-}
-
-.section-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #374151;
-    margin-top: 0;
-    margin-bottom: 0.75rem;
-}
-
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    color: #4b5563;
-    font-size: 0.875rem;
-}
-
-.checkbox-label:hover {
-    color: #111827;
-}
-
-.custom-checkbox {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 0.25rem;
-    border: 1px solid #d1d5db;
-    cursor: pointer;
-}
-
-/* ÁREA DOS PRODUTOS */
-.products-area {
-    width: 100%;
-}
-
-@media (min-width: 768px) {
-    .products-area {
-        width: 75%;
-    }
-}
-
+/* CONTADOR DE RESULTADOS */
 .results-count {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 0.875rem;
     font-style: italic;
     color: #6b7280;
@@ -146,22 +53,32 @@
     color: #374151;
 }
 
-/* GRID DE CARDS */
-.products-grid {
+/* GRID DE PRODUTOS EXPANDIDO (Responsivo) */
+.products-grid-full {
     display: grid;
+    /* Padrão para celular: 1 coluna */
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 1.5rem;
 }
 
+/* Para telas pequenas/médias (Ex: Tablets): 2 colunas */
 @media (min-width: 640px) {
-    .products-grid {
+    .products-grid-full {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+/* Para telas médias/grandes (Ex: Notebooks convencionais): 3 colunas */
 @media (min-width: 1024px) {
-    .products-grid {
+    .products-grid-full {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Para telas grandes (Monitores e computadores): 4 colunas por linha */
+@media (min-width: 1200px) {
+    .products-grid-full {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
@@ -188,7 +105,6 @@
     color: #9ca3af;
     font-size: 0.75rem;
 }
-
 
 .product-info {
     padding: 1rem;
