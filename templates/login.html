@@ -1,7 +1,11 @@
+{% extends "layout.html" %}
+
+    {% block conteudo %}
+
 <link rel="stylesheet" href="../static/styles/login-cadastro.css">
 <section class="pag_login">
     <h1>Login</h1>
-    <form action="/login" method="POST">
+    <form action="/login/post" method="POST">
         <span><img src="../static/img/logo-kuma-preenchido.png" alt="Logo Kuma"></span>
         <div class="campos">
             <label for="email">Email</label>
@@ -14,3 +18,6 @@
     </form>
     <a href="/cadastro">Não tem conta? Cadastre-se aqui.</a>
 </section>
+
+
+{% endblock %}

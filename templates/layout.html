@@ -6,6 +6,7 @@
     <title>Kuma Espresso</title>
     <link rel="stylesheet" href="/static/styles/layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../static/js/carrossel.js" defer></script>
 </head>
 <body>
 
@@ -14,8 +15,12 @@
             
             <ul class="menu-esquerdo">
                 <li><a href="/">Início</a></li>
+<<<<<<< HEAD
                 <li><a href="#">Sobre Nós</a></li>
                 <li><a href="/como_chegar">Como chegar</a></li>
+=======
+                <li><a href="/#sobre_nos">Sobre Nós</a></li>
+>>>>>>> b35eba54012969e50fdc9843a5868d3e129bf7e0
             </ul>
 
             <div class="logo-centro">
@@ -25,19 +30,32 @@
             <div class="lado-direito-container">
                 <ul class="menu-direito">
                     <li class="dropdown">
-                        <a href="#">Categorias <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Expressos</a></li>
-                            <li><a href="#">Lattes</a></li>
-                            <li><a href="#">Grãos</a></li>
-                        </ul>
-                    </li>
+                    <a href="#">
+                        Categorias
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        {% for categoria in categorias_menu %}
+                        <li>
+                            <a href="/produtos/{{ categoria.id_categoria }}">
+                                {{ categoria.categoria }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
                     <li><a href="#">Catálogo</a></li>
                 </ul>
 
                 <div class="icones-usuario">
-                    <a href="#" title="Carrinho"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="#" title="Login"><i class="fas fa-user-circle"></i></a>
+                    <a href="/#" title="Carrinho"><i class="fas fa-shopping-cart"></i></a>
+                    {% if session.get('usuario_logado') %}
+                    <span class="user">Olá {{ session.usuario_logado['nome_usuario'] }}</span>
+                    <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                    {% else %}
+                    <a href="/login" title="Login"><i class="fas fa-user-circle"></i></a>
+                    {% endif %}
                 </div>
             </div>
 
