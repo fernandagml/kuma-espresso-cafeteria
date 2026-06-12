@@ -5,11 +5,13 @@ from model.usuarios import cadastrar, logar
 from model.filtros import recuperar_filtros, recuperar_filtros_por_categoria
 
 app = Flask(__name__)
+app.secret_key = "cafeteria_kuma_espresso_chave"
 
 @app.route("/")
 def index():
     if "usuario_logado" in session:
-        session["usuario_logado"]["email_usuario"]["nome_usuario"]
+        session["usuario_logado"]["email_usuario"]
+        ################ session["usuario_logado"]["nome_usuario"] ######################################
 
     categorias = rc()
     return render_template("inicio.html", categorias = categorias)
@@ -49,10 +51,10 @@ def cadastro_usuario():
 def autenticar():
     return render_template("login.html")
 
-@app.route("/login/usuario", methods=["POST"])
+@app.route("/login/post", methods=["POST"])
 def logar_usuario():
-    email_user = request.form.get("email_usuario")
-    senha = request.form.get("senha_usuario")
+    email_user = request.form.get("email")
+    senha = request.form.get("senha")
 
     usuario_cad = logar(email_user, senha)
 
@@ -60,7 +62,12 @@ def logar_usuario():
         session["usuario_logado"] = usuario_cad
         return redirect("/")
     else:
-        return redirect("/login")
+        return redirect("/cadastro")
+    
+@app.route("/logout")
+def sair():
+    session.clear()
+    return redirect("/")
 
 
 if __name__ == "__main__":

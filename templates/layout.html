@@ -37,9 +37,10 @@
                 <div class="icones-usuario">
                     <a href="#" title="Carrinho"><i class="fas fa-shopping-cart"></i></a>
                     {% if session.get('usuario_logado') %}
-                    <span class="user">Bem vindo {{ session.usuario_logado['nome_usuario'] }}</span>
+                    <span class="user">Olá {{ session.usuario_logado['nome_usuario'] }}</span>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     {% else %}
-                    <a href="/cadastro" title="Login"><i class="fas fa-user-circle"></i></a>
+                    <a href="/login" title="Login"><i class="fas fa-user-circle"></i></a>
                     {% endif %}
                 </div>
             </div>
