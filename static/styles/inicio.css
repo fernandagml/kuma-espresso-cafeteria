@@ -376,4 +376,5 @@ section:nth-of-type(2) h1 {
     max-width: 1920px;
     height: auto;
     display: block;
+    padding: 0 0 0px 0;
 }
