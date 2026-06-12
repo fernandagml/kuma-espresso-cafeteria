@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block conteudo %}
+
+<main style="background: linear-gradient(180deg, #2a1a12 0%, #3a2419 50%, #2a1a12 100%); color:#f7efe6;">
+    <!-- Banner (header do texto) -->
+<section class="banner-simulado" style="background-image: url('../static/img/cafeteria.png');">
+
+        <div>
+            <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 10px; font-family: 'Georgia', serif;">Como chegar</h1>
+        </div>
+    </section>
+
+    <section style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;">
+
+            <div>
+                <h2 style="color:#f7efe6; font-size:28px; margin-bottom:12px;">Endereço</h2>
+                <p style="color:#fff2e6; font-size:16px; line-height:1.7; margin:0 0 18px 0;">
+                    Kuma Espresso<br>
+                    Avenida Maceió, Nº 1234 — Adrianópolis, Manaus/AM
+                </p>
+
+                <h3 style="color:#f7efe6; font-size:20px; margin-top:8px; margin-bottom:10px;">Como chegar</h3>
+                <ul style="color: #f7efe6; font-size: 15px; line-height: 1.8; padding-left: 18px;">
+                    <li>De carro: chegue pela região central e siga a orientação no mapa.</li>
+                    <li>De ônibus: desça em ponto próximo ao Centro de Manaus e siga a pé por poucos minutos.</li>
+                    <li>A pé: a área central facilita o deslocamento por diferentes rotas.</li>
+                </ul>
+
+                <div style="margin-top: 22px; padding: 16px 18px; background: #fcf8f5; border-radius: 14px; border: 1px solid rgba(43,24,16,0.12);">
+                    <div style="display:flex; gap:12px; align-items:flex-start;">
+                        <div style="width:44px; height:44px; border-radius:50%; background:#6f3f2a; display:flex; align-items:center; justify-content:center; color:#fff2e6; font-size:22px;">☕</div>
+                        <div>
+                            <p style="margin:0; color:#2b1810; font-size:14px; line-height:1.6;">
+                                Dica: no mapa, clique em <strong>“Como chegar”</strong> e informe seu ponto de partida.
+                            </p>
+                            <p style="margin:8px 0 0 0; color:#2b1810; font-size:13px; line-height:1.5;">
+                                Escolha seu modo:
+                            </p>
+                            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                                <button type="button" onclick="setSugestao('carro')" style="border:0; cursor:pointer; background:#8B5A2B; color:#fff2e6; padding:9px 12px; border-radius:999px; font-weight:700;">🚗 De carro</button>
+                                <button type="button" onclick="setSugestao('onibus')" style="border:0; cursor:pointer; background:#3b2418; color:#fff2e6; padding:9px 12px; border-radius:999px; font-weight:700; border:1px solid rgba(255,255,255,0.15);">🚌 De ônibus</button>
+                                <button type="button" onclick="setSugestao('ape')" style="border:0; cursor:pointer; background:#6f4a34; color:#fff2e6; padding:9px 12px; border-radius:999px; font-weight:700;">👣 A pé</button>
+                            </div>
+                            <p id="sugestao" style="margin:12px 0 0 0; color:#2b1810; font-size:14px; font-weight:600;">Toque em um botão para ver a sugestão do seu caminho.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 style="color: #f7efe6; font-size: 28px; margin-bottom: 12px;">Mapa</h2>
+                <div style="width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid rgba(43,24,16,0.12);">
+                    <iframe
+                        title="Google Maps - Kuma Espresso (Manaus)"
+                        src="https://www.google.com/maps?q=Manaus%2C%20AM%2C%20Brasil&output=embed"
+                        width="100%"
+                        height="420"
+                        style="border:0;"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div style="margin-top: 14px; text-align: right;">
+                    <a
+                        href="https://www.google.com/maps?q=Manaus%2C%20AM%2C%20Brasil"
+                        target="_blank"
+                        style="display: inline-block; background: #8B5A2B; color: #fff; padding: 10px 16px; border-radius: 25px; font-weight: 600;">
+                        Abrir no Google Maps
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script>
+    function setSugestao(tipo) {
+        const el = document.getElementById('sugestao');
+        const mapas = {
+            carro: '🚗 Carro: siga pelas vias centrais e use o mapa para encontrar a melhor rota até o Kuma Espresso em Manaus.',
+            onibus: '🚌 Ônibus: desça em um ponto próximo ao Centro de Manaus e faça o caminho a pé por alguns minutos.',
+            ape: '👣 A pé: a região central facilita o deslocamento; use o mapa para ajustar a rota.'
+        };
+        el.textContent = mapas[tipo] || 'Toque em um botão para ver a sugestão do seu caminho.';
+    }
+</script>
+
+{% endblock %}
+
