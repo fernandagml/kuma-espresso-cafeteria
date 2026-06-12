@@ -13,8 +13,8 @@
         <nav class="nav-container">
             
             <ul class="menu-esquerdo">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/#sobre_nos">Sobre Nós</a></li>
             </ul>
 
             <div class="logo-centro">
@@ -24,13 +24,21 @@
             <div class="lado-direito-container">
                 <ul class="menu-direito">
                     <li class="dropdown">
-                        <a href="#">Categorias <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Expressos</a></li>
-                            <li><a href="#">Lattes</a></li>
-                            <li><a href="#">Grãos</a></li>
-                        </ul>
-                    </li>
+                    <a href="#">
+                        Categorias
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        {% for categoria in categorias_menu %}
+                        <li>
+                            <a href="/produtos/{{ categoria.id_categoria }}">
+                                {{ categoria.categoria }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
                     <li><a href="#">Catálogo</a></li>
                 </ul>
 
