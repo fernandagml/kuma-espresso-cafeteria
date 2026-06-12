@@ -24,6 +24,9 @@ def pagina_produto(id_produto):
     produto = recuperar_produto(id_produto)
     return render_template("produto_unico.html", produto = produto)
 
+@app.route("/catalogo")
+def catalogo():
+    return render_template("catalogo.html")
 
 @app.route("/cadastro")
 def cadastrando():
