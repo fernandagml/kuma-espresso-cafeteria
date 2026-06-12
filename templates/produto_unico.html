@@ -10,6 +10,12 @@
     <section class="product-main-info">
         {% if produto %}
         <div class="product-image-container">
+
+               <a href="javascript:history.back()" class="btn-voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+
+ 
             <div class="product-image-placeholder">
                 <span><img src="{{ produto.imagem_produto }}" alt="{{ produto.nome_produto }}"></span>
             </div>
