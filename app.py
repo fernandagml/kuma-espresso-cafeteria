@@ -25,11 +25,10 @@ def pagina_produto(id_produto):
     return render_template("produto_unico.html", produto = produto)
 
 
-<<<<<<< HEAD
 @app.route("/como_chegar")
 def pagina_como_chegar():
     return render_template("como_chegar.html")
-=======
+
 @app.route("/cadastro")
 def cadastrando():
     return render_template("cadastro.html")
@@ -76,7 +75,6 @@ def carregar_categorias_menu():
     return {
         "categorias_menu": rc()
     }
->>>>>>> b35eba54012969e50fdc9843a5868d3e129bf7e0
 
 
 if __name__ == "__main__":
