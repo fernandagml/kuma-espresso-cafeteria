@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, jsonify
 from model.categorias import recuperar_categorias as rc
 from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
 from model.usuarios import cadastrar, logar
@@ -79,17 +79,14 @@ def carregar_categorias_menu():
         "categorias_menu": rc()
     }
 
-
 @app.route("/comentario/post/<id_produto>", methods=["POST"])
 def comentar(id_produto):
     comentario = request.form.get("comentario")
     if "usuario_logado" in session:
         usuario = session["usuario_logado"]["usuario"]
-    dados_json = request.get_json()
-    avaliacao = dados_json.get('avaliacao')
+    avaliacao = request.form.get("star")
     salvar_comentario(comentario, usuario, avaliacao, id_produto)
-    return redirect("/produto/<id_produto>")
-
+    return redirect(f"/produto/{id_produto}")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -2,8 +2,9 @@ CREATE DATABASE IF NOT EXISTS db_kumaespresso;
 USE db_kumaespresso;
 
 CREATE TABLE IF NOT EXISTS tb_usuarios (
-	nome_usuario VARCHAR(50) NOT NULL, 
-    email_usuario VARCHAR(100) PRIMARY KEY,
+	nome_usuario VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50) PRIMARY KEY,
+    email_usuario VARCHAR(100),
     telefone_usuario VARCHAR(12),
     endereco_usuario VARCHAR(100),
     senha_usuario VARCHAR(255)
@@ -39,4 +40,16 @@ CREATE TABLE IF NOT EXISTS tb_filtros_produtos (
     FOREIGN KEY (id_produto) REFERENCES tb_produtos(id_produto),
     CONSTRAINT FK_filtro 
     FOREIGN KEY (id_filtro) REFERENCES tb_filtros(id_filtro)
+);
+
+CREATE TABLE IF NOT EXISTS tb_comentarios (
+	id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+    comentario VARCHAR(200),
+    usuario VARCHAR(50),
+    avaliacao INT,
+    id_produto INT,
+	CONSTRAINT FK_comentario_usuario
+    FOREIGN KEY (usuario) REFERENCES tb_usuarios(usuario),
+	CONSTRAINT FK_comentario_produto
+    FOREIGN KEY (id_produto) REFERENCES tb_produtos(id_produto)
 );
