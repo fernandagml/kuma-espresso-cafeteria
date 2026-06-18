@@ -1,51 +1,80 @@
 {% extends "layout.html" %}
 
-    {% block conteudo %}
-    <link rel="stylesheet" href="../static/styles/inicio.css">
-    <link rel="stylesheet" href="../static/styles/">
-    <!-- Banner -->
-    <section class="carousel-container">
-        <button class="nav-btn prev-btn">←</button>
+{% block conteudo %}
+<link rel="stylesheet" href="../static/styles/inicio.css">
 
-        <div class="product-stage">
-            <div class="product-card active">
-                <img src="../static/img/cafe-pingado.png" alt="Café Tradicional">
+<section class="carousel-container">
+    <button class="nav-btn prev-btn">←</button>
+
+    <div class="product-stage">
+        <div class="product-card active">
+            <div class="promo-text-left">
+                <span class="sub-titulo">KUMA</span>
+                <span class="titulo-principal">TRADICIONAL</span>
+                <span class="legenda-abstrata">Momentos que despertam sentidos.</span>
             </div>
 
-            <div class="product-card">
-                <img src="../static/img/cafe-gelado.png" alt="Café Caramelo">
-            </div>
+            <img src="../static/img/cafe-pingado.png" alt="Café Tradicional">
 
-            <div class="product-card">
-                <img src="../static/img/cafe-espresso.png" alt="Café Baunilha">
+            <div class="promo-text-right">
+                <span class="sub-titulo">O CLÁSSICO</span>
+                <span class="titulo-principal">DO SEU DIA</span>
+                <span class="botao-promo">Redescubra o nosso afeto diário</span>
             </div>
         </div>
-        <div class="description-container"></div>
-        <button class="nav-btn next-btn">→</button>
-    </section>
 
-    <!-- Categorias -->
-    <section>
-        <h1>Especialidades</h1>
-        {% for categoria in categorias %}
-        <a href="/produtos/{{ categoria.id_categoria }}">
-            <figure class="figure">
-                <img src="{{ categoria.imagem_categoria }}" class="figure-img" alt="{{ categoria.categoria }}">
-                <figcaption class="figure-caption">{{ categoria.categoria }}</figcaption>
-            </figure>
-        </a>
-        {% endfor %}
-    </section>
+        <div class="product-card">
+            <div class="promo-text-left">
+                <span class="sub-titulo">ENERGIA</span>
+                <span class="titulo-principal">REFRESCANTE</span>
+                <span class="legenda-abstrata">Descubra novas sensações.</span>
+            </div>
 
-    <!-- Sobre a loja -->
+            <img src="../static/img/cafe-gelado.png" alt="Café Caramelo">
+
+            <div class="promo-text-right">
+                <span class="sub-titulo">AS MELHORES</span>
+                <span class="titulo-principal">ESCOLHAS</span>
+                <span class="botao-promo">EXPLORE O CATÁLOGO DE GELADOS</span>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="promo-text-left">
+                <span class="sub-titulo">PURA</span>
+                <span class="titulo-principal">INTENSIDADE</span>
+                <span class="legenda-abstrata">O sabor que abraça a rotina.</span>
+            </div>
+
+            <img src="../static/img/cafe-espresso.png" alt="Café Baunilha">
+
+            <div class="promo-text-right">
+                <span class="sub-titulo">QUALIDADE</span>
+                <span class="titulo-principal">PREMIUM</span>
+                <span class="botao-promo">Sinta a potência do grão perfeito</span>
+            </div>
+        </div>
+    </div>
     
-    <section class="sobre_nos_container">
+    <div class="description-container"></div>
+    <button class="nav-btn next-btn">→</button>
+</section>
 
-   <h1 class="titulo-sobre">Sobre Nós</h1>
+<section>
+    <h1>Especialidades</h1>
+    {% for categoria in categorias %}
+    <a href="/produtos/{{ categoria.id_categoria }}">
+        <figure class="figure">
+            <img src="{{ categoria.imagem_categoria }}" class="figure-img" alt="{{ categoria.categoria }}">
+            <figcaption class="figure-caption">{{ categoria.categoria }}</figcaption>
+        </figure>
+    </a>
+    {% endfor %}
+</section>
 
-    <section class="sobre_nos">
-
-         
+<section class="sobre_nos_container">
+    <h1 class="titulo-sobre">Sobre Nós</h1>
+    <section class="sobre_nos" id="sobre_nos">
         <div class="infos-esquerda">
             <h3>Grãos Selecionados</h3>
             <p>Escolhemos cuidadosamente cada grão para oferecer uma experiência única em cada xícara.</p>
@@ -64,12 +93,10 @@
             <p>Mais que café, criamos momentos especiais para acompanhar o seu dia.</p>
         </div>
     </section>
-
 </section>
-    <!-- Slogan -->
-    <section class="slogan">
-        <h1>Slogan promocional!</h1>
-        <img src="">
-    </section>
 
+<section class="slogan">
+    <h1></h1>
+    <img src="../static/img/slogan-promocional.png">
+</section>
 {% endblock %}
