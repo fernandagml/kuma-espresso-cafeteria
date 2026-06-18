@@ -27,6 +27,10 @@ def pagina_produto(id_produto):
     return render_template("produto_unico.html", produto = produto, comentarios = comentarios)
 
 
+@app.route("/como_chegar")
+def pagina_como_chegar():
+    return render_template("como_chegar.html")
+
 @app.route("/cadastro")
 def cadastrando():
     return render_template("cadastro.html")
