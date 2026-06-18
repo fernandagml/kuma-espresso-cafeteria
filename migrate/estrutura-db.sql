@@ -19,7 +19,8 @@ CREATE TABLE IF NOT EXISTS tb_produtos (
 	id_produto INT PRIMARY KEY AUTO_INCREMENT,
     nome_produto VARCHAR(50) NOT NULL,
     preco_produto REAL NOT NULL,
-    descricao_produto VARCHAR(100),
+    descricao_produto VARCHAR(500),
+    descricao_detalhada VARCHAR(800),
     imagem_produto varchar(250),
     id_categoria INT,
     CONSTRAINT FK_produto_categoria

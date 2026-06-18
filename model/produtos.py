@@ -33,7 +33,7 @@ def recuperar_produto(id):
 
     try:
         conexao, cursor = conectar()
-        cursor.execute("SELECT id_produto, nome_produto, preco_produto, descricao_produto, imagem_produto, id_categoria FROM tb_produtos WHERE id_produto = %s;", (id, ))
+        cursor.execute("SELECT id_produto, nome_produto, preco_produto, descricao_produto, imagem_produto, id_categoria, descricao_detalhada FROM tb_produtos WHERE id_produto = %s;", (id, ))
         produto = cursor.fetchone()
         conexao.close()
         return produto
