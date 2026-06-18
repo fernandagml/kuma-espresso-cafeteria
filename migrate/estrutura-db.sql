@@ -42,8 +42,6 @@ CREATE TABLE IF NOT EXISTS tb_filtros_produtos (
     CONSTRAINT FK_filtro 
     FOREIGN KEY (id_filtro) REFERENCES tb_filtros(id_filtro)
 );
-<<<<<<< HEAD
-=======
 
 CREATE TABLE IF NOT EXISTS tb_comentarios (
 	id_comentario INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,4 +54,3 @@ CREATE TABLE IF NOT EXISTS tb_comentarios (
 	CONSTRAINT FK_comentario_produto
     FOREIGN KEY (id_produto) REFERENCES tb_produtos(id_produto)
 );
->>>>>>> 00eea662de7f8df2c5f11be9b41ddcbde463e0de
