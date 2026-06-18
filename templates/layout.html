@@ -17,13 +17,13 @@
             
             <ul class="menu-esquerdo">
                 <li><a href="/">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="/como_chegar">Como chegar</a></li>
                 <li><a href="/#sobre_nos">Sobre Nós</a></li>
+                <li><a href="/como_chegar">Como chegar</a></li>
+                
             </ul>
 
             <div class="logo-centro">
-                <img src="static/img/logo-transparente.png" alt="Kuma Espresso">
+                <img src="{{ url_for('static', filename='img/logo-transparente.png') }}">
             </div>
 
             <div class="lado-direito-container">
@@ -44,7 +44,7 @@
                         {% endfor %}
                     </ul>
                 </li>
-                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="/catalogo">Catálogo</a></li>
                 </ul>
 
                 <div class="icones-usuario">

@@ -88,5 +88,10 @@ def comentar(id_produto):
     salvar_comentario(comentario, usuario, avaliacao, id_produto)
     return redirect(f"/produto/{id_produto}")
 
+@app.route("/catalogo")
+def pagina_catalogo():
+    return render_template("catalogo.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

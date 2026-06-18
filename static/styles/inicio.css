@@ -1,7 +1,6 @@
-
 /* MODIFICAR E GARANTIR QUE FUNCIONE PELO AMOR DE DEUS */
 
-/* 1. CARROSSEL DE PRODUTOS (GRADIENTE RADIAL E GIRO DINÂMICO) */
+/*1. CARROSSEL DE PRODUTOS (TEXTOS FIXOS/DESLIZANDO + SÓ O COPO GIRA)*/
 .carousel-container {
     background: #bd9277;
     background: radial-gradient(circle, rgba(189, 146, 119, 1) 0%, rgba(109, 57, 20, 1) 52%, rgba(45, 25, 16, 1) 100%);
@@ -18,8 +17,8 @@
 
 .product-stage {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 950px; 
+    height: 450px;
     margin: 0 auto;
 }
 
@@ -30,55 +29,176 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     opacity: 0;
     visibility: hidden;
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s, visibility 0.6s;
 }
 
+/* Aplica a transição de rotação exclusivamente na imagem do café */
 .product-card img {
-    width: 500px;
-    max-width: none;
+    width: 420px;
+    height: 420px;
     object-fit: contain;
-    filter: drop-shadow(0px 20px 35px rgba(0, 0, 0, 0.55));
+    filter: drop-shadow(0px 20px 35px rgba(0, 0, 0, 0.45));
+    z-index: 2;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Quando o card estiver ativo, o texto fica na posição normal e a imagem em 0 graus */
 .product-card.active {
     opacity: 1;
     visibility: visible;
+    transform: translateX(0) scale(1);
+}
+.product-card.active img {
     transform: rotate(0deg) scale(1);
 }
 
-.product-card.enter-next { opacity: 0; visibility: hidden; transform: rotate(-180deg) scale(0.7); transition: none; }
-.product-card.exit-next { opacity: 0; visibility: hidden; transform: rotate(180deg) scale(0.7); }
-.product-card.enter-prev { opacity: 0; visibility: hidden; transform: rotate(180deg) scale(0.7); transition: none; }
-.product-card.exit-prev { opacity: 0; visibility: hidden; transform: rotate(-180deg) scale(0.7); }
+/*TRANSIÇÕES DO SEU JS: O TEXTO TRADUZ PARA OS LADOS E SÓ A IMG GIRA*/
 
-.nav-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+/* Avançando (Next) */
+.product-card.enter-next { 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateX(50px); 
+    transition: none; 
+}
+.product-card.enter-next img { 
+    transform: rotate(-180deg) scale(0.7); 
+    transition: none;
+}
+
+.product-card.exit-next { 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateX(-50px); 
+}
+.product-card.exit-next img { 
+    transform: rotate(180deg) scale(0.7); 
+}
+
+/* Voltando (Prev) */
+.product-card.enter-prev { 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateX(-50px); 
+    transition: none; 
+}
+.product-card.enter-prev img { 
+    transform: rotate(180deg) scale(0.7); 
+    transition: none;
+}
+
+.product-card.exit-prev { 
+    opacity: 0; 
+    visibility: hidden; 
+    transform: translateX(50px); 
+}
+.product-card.exit-prev img { 
+    transform: rotate(-180deg) scale(0.7); 
+}
+
+/*ESTILIZAÇÃO COMPLETA DAS ESCRITAS EM VOLTA (REFINADAS E SEM BOTÃO)*/
+.promo-text-left, 
+.promo-text-right {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
     color: #ffffff;
-    font-size: 24px;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    z-index: 3;
+    transition: transform 0.6s ease; 
+}
+
+.promo-text-left { text-align: left; align-items: flex-start; }
+.promo-text-right { text-align: right; align-items: flex-end; }
+
+.sub-titulo {
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1.2;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+.titulo-principal {
+    font-size: 38px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 300; 
+    line-height: 1.1;
+    margin: 6px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.legenda-abstrata {
+    font-size: 11px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    opacity: 0.6;
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+
+/* Transformado em texto puro, sem caixas ou fundos de botão */
+.botao-promo {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 12px;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4B483; 
+    position: relative;
+    padding-bottom: 4px;
+}
+
+/* Linha minimalista abaixo do link promocional */
+.botao-promo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background-color: rgba(212, 180, 131, 0.5);
+}
+.promo-text-right .botao-promo::after {
+    left: auto;
+    right: 0;
+}
+
+/* SETAS LATERAIS ELEGANTES E MINIMALISTAS */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 32px;
+    font-weight: 200;
+    font-family: system-ui, sans-serif;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.nav-btn:hover { background: #ffffff; color: #2d1510; transform: scale(1.1); }
+.nav-btn:hover { 
+    color: #ffffff; 
+    transform: scale(1.15); 
+}
 .description-container { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 5; }
 
 
-/* 2. SEÇÃO DE DESTAQUES (TÍTULO NO TOPO + TODOS OS PRODUTOS EM LINHA LATERAL) */
-  
+/*2. SEÇÃO DE DESTAQUES (TÍTULO NO TOPO + TODOS OS PRODUTOS EM LINHA LATERAL)*/
 section:nth-of-type(2) {
     max-width: 1400px;
     margin: 120px auto;
@@ -87,37 +207,28 @@ section:nth-of-type(2) {
 }
 
 /* TÍTULO */
-
 section:nth-of-type(2) h1 {
     font-size: 42px;
     font-family: 'Georgia', serif;
     font-weight: 500;
     color: #2A1E17;
-
     letter-spacing: 3px;
     text-transform: uppercase;
-
     margin-bottom: 80px;
     position: relative;
 }
 
 section:nth-of-type(2) h1::after {
     content: "";
-
     display: block;
-
     width: 90px;
     height: 3px;
-
     background: #D4B483;
-
     margin: 18px auto 0;
-
     border-radius: 999px;
 }
 
 /* CONTAINER DOS ITENS */
-
 section:nth-of-type(2) {
     display: flex;
     flex-wrap: wrap;
@@ -126,54 +237,32 @@ section:nth-of-type(2) {
 }
 
 /* Faz o título ocupar a linha inteira */
-
 section:nth-of-type(2) h1 {
     flex-basis: 100%;
 }
 
 /* CARD INVISÍVEL */
-
 .figure {
     position: relative;
-
     width: 200px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     cursor: pointer;
-
     transition: transform .4s ease;
 }
 
-
-
 .figure::before {
     content: "";
-
     position: absolute;
-
     top: 40%;
     left: 50%;
-
     transform: translate(-50%, -50%);
-
     width: 180px;
     height: 180px;
-
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(212,180,131,.35) 0%,
-            rgba(212,180,131,.10) 50%,
-            transparent 80%
-        );
-
+    background: radial-gradient(circle, rgba(212,180,131,.35) 0%, rgba(212,180,131,.10) 50%, transparent 80%);
     z-index: -1;
-
     transition: all .4s ease;
 }
 
@@ -183,43 +272,27 @@ section:nth-of-type(2) h1 {
 }
 
 /* IMAGEM */
-
 .figure-img {
     width: 100%;
     height: 220px;
-
     object-fit: contain;
-
-    filter:
-        drop-shadow(0 15px 25px rgba(0,0,0,.12));
-
-    transition:
-        transform .4s ease,
-        filter .4s ease;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,.12));
+    transition: transform .4s ease, filter .4s ease;
 }
 
 .figure:hover .figure-img {
-    transform:
-        translateY(-12px)
-        scale(1.08);
-
-    filter:
-        drop-shadow(0 25px 40px rgba(0,0,0,.18));
+    transform: translateY(-12px) scale(1.08);
+    filter: drop-shadow(0 25px 40px rgba(0,0,0,.18));
 }
 
 /* LEGENDA */
-
 .figure-caption {
     margin-top: 20px;
-
     color: #4A3122;
-
     font-size: 17px;
     font-family: 'Georgia', serif;
-
     letter-spacing: 1.5px;
     text-transform: uppercase;
-
     transition: color .3s ease;
 }
 
@@ -228,58 +301,32 @@ section:nth-of-type(2) h1 {
 }
 
 /* RESPONSIVO */
-
 @media (max-width: 900px) {
-    section:nth-of-type(2) {
-        gap: 40px;
-    }
-
-    .figure {
-        width: 160px;
-    }
-
-    .figure-img {
-        height: 180px;
-    }
-
-    section:nth-of-type(2) h1 {
-        font-size: 34px;
-    }
+    section:nth-of-type(2) { gap: 40px; }
+    .figure { width: 160px; }
+    .figure-img { height: 180px; }
+    section:nth-of-type(2) h1 { font-size: 34px; }
 }
 
 @media (max-width: 600px) {
-    section:nth-of-type(2) {
-        gap: 25px;
-    }
-
-    .figure {
-        width: 140px;
-    }
-
-    .figure-img {
-        height: 150px;
-    }
+    section:nth-of-type(2) { gap: 25px; }
+    .figure { width: 140px; }
+    .figure-img { height: 150px; }
 }
-/* 3. SOBRE NÓS / INFO LOJA*/
-.sobre_nos_container {
-    background: linear-gradient(
-        180deg,
-        #f8f3ee 0%,
-        #f3ede6 100%
-    );
 
+/*3. SOBRE NÓS / INFO LOJA*/
+.sobre_nos_container {
+    background: linear-gradient(180deg, #f8f3ee 0%, #f3ede6 100%);
     padding: 100px 40px;
 }
 
 .titulo-sobre {
     text-align: center;
     margin-bottom: 70px;
-
     font-size: 48px;
     font-family: 'Georgia', serif;
     font-weight: 600;
     letter-spacing: 2px;
-
     color: #2A1E17;
     position: relative;
 }
@@ -289,28 +336,20 @@ section:nth-of-type(2) h1 {
     display: block;
     width: 90px;
     height: 3px;
-
     margin: 18px auto 0;
-
     background: #D4B483;
     border-radius: 50px;
 }
 
 .sobre_nos {
     background: #2A1E17;
-
     border-radius: 32px;
-
     padding: 80px 60px;
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 70px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.12),
-    0 8px 20px rgba(0,0,0,.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,.12), 0 8px 20px rgba(0,0,0,.08);
 }
 
 .infos-esquerda,
@@ -319,32 +358,22 @@ section:nth-of-type(2) h1 {
     max-width: 350px;
 }
 
-.infos-esquerda {
-    text-align: right;
-}
-
-.infos-direita {
-    text-align: left;
-}
+.infos-esquerda { text-align: right; }
+.infos-direita { text-align: left; }
 
 .sobre_nos h3 {
     color: #D4B483;
-
     font-size: 24px;
     font-weight: 600;
     letter-spacing: 1px;
-
     margin-bottom: 12px;
-
     font-family: 'Georgia', serif;
 }
 
 .sobre_nos p {
     color: #D8CFC4;
-
     font-size: 15px;
     line-height: 1.9;
-
     margin-bottom: 45px;
 }
 
@@ -352,16 +381,15 @@ section:nth-of-type(2) h1 {
     width: 600px;
     max-width: 100%;
     height: auto;
-
     filter: drop-shadow(0 30px 40px rgba(0,0,0,.35));
-
     transition: transform .4s ease;
 }
 
 .sobre_nos img:hover {
     transform: translateY(-10px);
 }
-/* 4. SLOGAN */
+
+/*4. SLOGAN*/
 .slogan {
     width: 100%;
     background-color: #f7f5f0;
@@ -376,5 +404,4 @@ section:nth-of-type(2) h1 {
     max-width: 1920px;
     height: auto;
     display: block;
-    padding: 0 0 0px 0;
 }
