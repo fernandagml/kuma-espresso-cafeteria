@@ -90,7 +90,8 @@ def comentar(id_produto):
 
 @app.route("/catalogo")
 def pagina_catalogo():
-    return render_template("catalogo.html")
+    produtos = rp()
+    return render_template("catalogo.html", produtos = produtos)
 
 
 if __name__ == "__main__":
