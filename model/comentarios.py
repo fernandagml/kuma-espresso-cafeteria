@@ -14,9 +14,10 @@ def salvar_comentario(comentario, usuario, avaliacao, id_produto):
 def recuperar_comentarios(id_produto):
     try:
         conexao, cursor = conectar()
-        cursor.execute("SELECT * FROM tb_comentarios;")
+        cursor.execute("SELECT * FROM tb_comentarios WHERE id_produto = %s;", (id_produto, ))
         comentarios = cursor.fetchall()
         conexao.close()
+        return comentarios
 
     except Exception as erro:
         print(erro)

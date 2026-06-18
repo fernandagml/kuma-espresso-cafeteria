@@ -1,21 +1,19 @@
 {% extends "layout.html" %}
 
-    {% block conteudo %}
-
+{% block conteudo %}
 <link rel="stylesheet" href="../static/styles/unico.css">
 <script src="../static/js/ver-mais.js" defer></script>
 
 <main class="product-detail-container">
-    
+    {% if produto %}
     <section class="product-main-info">
-        {% if produto %}
         <div class="product-image-container">
 
-               <a href="javascript:history.back()" class="btn-voltar">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
+            <a href="javascript:history.back()" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i>
+            </a>
 
- 
+
             <div class="product-image-placeholder">
                 <span><img src="{{ produto.imagem_produto }}" alt="{{ produto.nome_produto }}"></span>
             </div>
@@ -29,11 +27,11 @@
             <h1 class="product-detail-name">{{ produto.nome_produto }}</h1>
             <div class="product-divider"></div>
             <div class="product-detail-price">{{ produto.preco_produto }}</div>
-            
+
             <div class="product-description-short">
                 <p>{{ produto.descricao_produto }}</p>
             </div>
-            
+
             <div id="descricao-extra" class="descricao-oculta">
                 <p>
                     Aqui fica a descrição completa do produto. Você pode colocar
@@ -43,23 +41,23 @@
             </div>
 
             <button class="btn-see-more">VER MAIS</button>
-            
+
             <div class="actions-container">
                 <button class="btn-add-cart">Adicionar ao carrinho</button>
             </div>
         </div>
-        {% endif %}
     </section>
-    {% if session.get('usuario_logado') %}
+
     <section class="reviews-section">
-        
+
         <form action="/comentario/post/{{ produto.id_produto }}" class="add-comment-box">
             <div class="comment-input-row">
                 <div class="comentario-grid">
                     <h1>Comentários</h1>
                     <p>Envie seu feedback sobre o produto e sua experiência com a loja!</p>
                 </div>
-                <input type="text" placeholder="ADICIONAR COMENTÁRIO" class="input-comment" name="comentario" id="comentario">
+                <input type="text" placeholder="ADICIONAR COMENTÁRIO" class="input-comment" name="comentario"
+                    id="comentario">
                 <div class="star-rating-input">
                     <input type="radio" value="1" id="star1" name="star">
                     <label for="star1" class="star-icon">☆</label>
@@ -73,12 +71,16 @@
                     <label for="star5" class="star-icon">☆</label>
                 </div>
             </div>
+            {% if session.get('usuario_logado') %}
             <button class="btn-submit-comment" type="submit" id="buttonAvaliacao">Enviar</button>
+            {% else %}
+            <a href="/login"><button class="btn-submit-comment" type="button" id="buttonAvaliacao">Enviar</button></a>
+            {% endif %}
         </form>
 
         <div class="reviews-list-container">
             <h2 class="reviews-title">Avaliações</h2>
-            {% if comentario in comentarios %}
+            {% for comentario in comentarios %}
             <div class="review-item">
                 <div class="user-avatar">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -92,11 +94,9 @@
                     <span>{{ comentario.avaliacao }}☆</span>
                 </div>
             </div>
-            {% endif %}
+            {% endfor %}
         </div>
     </section>
     {% endif %}
 </main>
-
-
 {% endblock %}
