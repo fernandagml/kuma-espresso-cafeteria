@@ -1,4 +1,5 @@
-body{
+/*CONFIGURAÇÃO GERAL E FUNDO DE ACENTUAÇÃO*/
+body {
     background: linear-gradient(
         to bottom,
         #2A1E17 0px,
@@ -6,181 +7,185 @@ body{
         #f8f3ee 350px,
         #fdfaf7 100%
     );
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* CONTAINER */
-
-.main-container{
-    max-width:1400px;
-    margin:0 auto;
-    padding:0 40px 80px;
+/* CONTAINER CENTRAL */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
 }
 
-/* BANNER */
+/*BANNER DO TOPO (MANTIDO REFINADO)*/
+.product-banner-full {
+    background: linear-gradient(135deg, #2A1E17 0%, #3B281D 100%);
+    padding: 140px 20px 80px 20px; 
+    margin-bottom: 60px;
+    text-align: center;
+}
 
-.product-banner-full{
-    background:linear-gradient(
-        135deg,
-        #2A1E17 0%,
-        #3B281D 100%
-    );
-    padding:80px 20px;
-    margin-bottom:60px;
-    text-align:center;
+.banner-title {
+    color: #F8F3EE;
+    font-size: 42px;
+    font-family: 'Georgia', serif;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    position: relative;
+    margin: 0;
+}
+
+.banner-subtitle {
+    color: #D4B483;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+.banner-title::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 3px;
+    margin: 18px auto 0;
+    background: #D4B483;
+    border-radius: 999px;
+}
+
+/* CONTADOR DE RESULTADOS */
+.results-count {
+    margin-bottom: 30px;
+    color: #777;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.results-count .highlight {
+    color: #8B5A2B;
+    font-weight: 700;
 }
 
 
-.banner-title{
-    color:#F8F3EE;
-    font-size:42px;
-    font-family:Georgia, serif;
-    font-weight:500;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    position:relative;
+
+/*CARDS DE PRODUTOS ORIGINAIS (RESTAURADOS)*/
+.product-card {
+    background: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.banner-subtitle{
-    color:#F8F3EE;
-    font-size:18px;
-    font-family:Georgia, serif;
-    font-weight:500;
-    letter-spacing:4px;
-    position:relative;
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
 }
 
-
-.banner-title::after{
-    content:"";
-    display:block;
-    width:90px;
-    height:3px;
-    margin:18px auto 0;
-    background:#D4B483;
-    border-radius:999px;
+/* IMAGEM E CONTEXTO ORIGINAL */
+.product-image-placeholder {
+    width: 100%;
+    height: 260px;
+    background: #f8f3ee;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* RESULTADOS */
-
-.results-count{
-    margin-bottom:30px;
-    color:#777;
-    font-style:italic;
-    font-size:15px;
+.product-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .5s ease;
 }
 
-.results-count .highlight{
-    color:#8B5A2B;
-    font-weight:700;
+.product-card:hover .product-image-placeholder img {
+    transform: scale(1.05);
 }
 
-/* GRID */
-
-.products-grid-full{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:35px;
+.product-image-placeholder span {
+    color: #9c8b7a;
+    font-size: 14px;
 }
 
-/* CARD */
-
-.product-card{
-    background:#fff;
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.08);
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+/* INFORMAÇÕES ORIGINAIS */
+.product-info {
+    padding: 22px;
 }
 
-.product-card:hover{
-    transform:translateY(-8px);
-    box-shadow:
-        0 20px 40px rgba(0,0,0,.12);
+.product-name {
+    color: #2A1E17;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px;
 }
 
-/* IMAGEM */
-
-.product-image-placeholder{
-    width:100%;
-    height:260px;
-    background:#f8f3ee;
-    overflow:hidden;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.product-price {
+    color: #8B5A2B;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
 }
 
-.product-image-placeholder img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
-    transition:transform .5s ease;
+/* GRID DE PRODUTOS (FORÇANDO 4 COLUNAS EM TELAS GRANDES)*/
+.products-grid-full {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 35px;
 }
 
-.product-card:hover .product-image-placeholder img{
-    transform:scale(1.05);
-}
+/* RESPONSIVIDADE INTELIGENTE (REDIMENSIONANDO CONFORME A TELA DIMINUI) */
 
-.product-image-placeholder span{
-    color:#9c8b7a;
-    font-size:14px;
-}
-
-/* INFORMAÇÕES */
-
-.product-info{
-    padding:22px;
-}
-
-.product-name{
-    color:#2A1E17;
-    font-family:Georgia, serif;
-    font-size:18px;
-    font-weight:600;
-    margin:0 0 10px;
-}
-
-.product-price{
-    color:#8B5A2B;
-    font-size:20px;
-    font-weight:700;
-    margin:0;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:1200px){
-    .products-grid-full{
-        grid-template-columns:repeat(3,1fr);
+/* Em notebooks ou telas ligeiramente menores, cai para 3 colunas */
+@media(max-width: 1200px){
+    .products-grid-full {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
     }
 }
 
-@media(max-width:900px){
-    .products-grid-full{
-        grid-template-columns:repeat(2,1fr);
+/* Em tablets, cai para 2 colunas */
+@media(max-width: 900px){
+    .products-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
 
-    .main-container{
-        padding:0 20px 60px;
+    .main-container {
+        padding: 0 20px 60px;
     }
 }
 
-@media(max-width:600px){
-    .products-grid-full{
-        grid-template-columns:1fr;
+/* Em celulares, fica com 2 colunas compactas pra não ficar aquele card gigante */
+@media(max-width: 600px){
+    .products-grid-full {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; /* Menos espaço entre os cards no celular */
     }
 
-    .banner-title{
-        font-size:32px;
+    .banner-title {
+        font-size: 32px;
     }
 
-    .product-image-placeholder{
-        height:220px;
+    /* Reduz um pouco o tamanho da imagem no celular para caber perfeitamente lado a lado */
+    .product-image-placeholder {
+        height: 180px;
+    }
+    
+    .product-name {
+        font-size: 16px;
+    }
+    
+    .product-price {
+        font-size: 18px;
     }
 }
+
+

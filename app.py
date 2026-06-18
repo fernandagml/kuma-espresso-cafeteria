@@ -77,5 +77,10 @@ def carregar_categorias_menu():
     }
 
 
+@app.route("/catalogo")
+def pagina_catalogo():
+    return render_template("catalogo.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
