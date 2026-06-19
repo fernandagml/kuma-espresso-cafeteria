@@ -77,8 +77,9 @@
 
         <div class="reviews-list-container">
             <h2 class="reviews-title">Avaliações</h2>
+
             {% for comentario in comentarios %}
-            <div class="review-item">
+            <div class="review-item" style="position: relative;">
                 <div class="user-avatar">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -94,8 +95,18 @@
                         <i class="fas fa-star"></i>
                     </div>
                 </div>
+
+                {% if session.get('usuario_logado') and session.usuario_logado['usuario'] == comentario.usuario %}
+                <a href="/comentario/excluir/{{ comentario.id_comentario }}/{{ produto.id_produto }}" 
+                   style="position: absolute; top: 30px; right: 30px; color: #c94c4c; font-size: 16px; transition: 0.3s;"
+                   title="Excluir Comentário"
+                   onclick="return confirm('Tem certeza que deseja deletar sua avaliação?');">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                {% endif %}
             </div>
             {% endfor %}
+            
         </div>
     </section>
     {% endif %}
