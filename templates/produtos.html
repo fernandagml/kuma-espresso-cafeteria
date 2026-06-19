@@ -22,7 +22,7 @@
                 <div class="checkbox-group">
                     {% for filtro in filtros_por_categoria %}
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox" name="{{ filtro.id_filtro }}">
+                        <input type="radio" class="custom-checkbox" name="subcategoria" value="{{ filtro.id_filtro }}">
                         <span>{{ filtro.nome_filtro }}</span>
                     </label>
                     {% endfor %}
@@ -33,19 +33,19 @@
                 <h3 class="section-title">Preços</h3>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <input type="radio" class="custom-checkbox" name="preco" value="0-10">
                         <span>Até R$ 10,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <input type="radio" class="custom-checkbox" name="preco" value="10-20">
                         <span>R$ 10,00 a R$ 20,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <input type="radio" class="custom-checkbox" name="preco" value="20-30">
                         <span>R$ 20,00 a R$ 30,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <input type="radio" class="custom-checkbox" name="preco" value="30-999">
                         <span>Mais de R$ 30,00</span>
                     </label>
                 </div>
