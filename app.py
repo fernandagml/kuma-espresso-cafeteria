@@ -3,7 +3,7 @@ from model.categorias import recuperar_categorias as rc
 from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
 from model.usuarios import cadastrar, logar
 from model.filtros import recuperar_filtros, recuperar_filtros_por_categoria
-from model.comentarios import salvar_comentario, recuperar_comentarios
+from model.comentarios import salvar_comentario, recuperar_comentarios, excluir_comentario
 
 app = Flask(__name__)
 app.secret_key = "cafeteria_kuma_espresso_chave"
@@ -96,6 +96,13 @@ def pagina_catalogo():
 def filtrar_produtos():
     preco = request.form.get("preco")
     filtro = request.form.get("")
+
+
+@app.route("/comentario/excluir/<id_comentario>/<id_produto>")
+def deletar_comentario(id_comentario, id_produto):
+    if "usuario_logado" in session:
+        excluir_comentario(id_comentario)
+    return redirect(f"/produto/{id_produto}")
 
 
 if __name__ == "__main__":
