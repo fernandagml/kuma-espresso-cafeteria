@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session, jsonify
+from flask import Flask, render_template, redirect, request, session
 from model.categorias import recuperar_categorias as rc
 from model.produtos import recuperar_produtos as rp, recuperar_produtos_por_categoria, recuperar_produto
 from model.usuarios import cadastrar, logar
