@@ -3,6 +3,7 @@
 {% block conteudo %}
 <link rel="stylesheet" href="../static/styles/unico.css">
 <script src="../static/js/ver-mais.js" defer></script>
+<script src="../static/js/estrelas.js" defer></script>
 
 <main class="product-detail-container">
     {% if produto %}
@@ -52,20 +53,20 @@
                     <h1>Comentários</h1>
                     <p>Envie seu feedback sobre o produto e sua experiência com a loja!</p>
                 </div>
-                <input type="text" placeholder="ADICIONAR COMENTÁRIO" class="input-comment" name="comentario"
+                <input type="text" placeholder="Adicionar Comentário" class="input-comment" name="comentario"
                     id="comentario">
-                <div class="star-rating-input">
-                    <input type="radio" value="1" id="star1" name="star">
-                    <label for="star1" class="star-icon">☆</label>
-                    <input type="radio" value="2" id="star2" name="star">
-                    <label for="star2" class="star-icon">☆</label>
-                    <input type="radio" value="3" id="star3" name="star">
-                    <label for="star3" class="star-icon">☆</label>
-                    <input type="radio" value="4" id="star4" name="star">
-                    <label for="star4" class="star-icon">☆</label>
-                    <input type="radio" value="5" id="star5" name="star">
-                    <label for="star5" class="star-icon">☆</label>
-                </div>
+            <div class="star-rating-input rating-group">
+                <input type="radio" value="1" id="star1" name="star">
+                <label for="star1" class="star-icon">☆</label>
+                <input type="radio" value="2" id="star2" name="star">
+                <label for="star2" class="star-icon">☆</label>
+                <input type="radio" value="3" id="star3" name="star">
+                <label for="star3" class="star-icon">☆</label>
+                <input type="radio" value="4" id="star4" name="star">
+                <label for="star4" class="star-icon">☆</label>
+                <input type="radio" value="5" id="star5" name="star">
+                <label for="star5" class="star-icon">☆</label>
+            </div>
             </div>
             {% if session.get('usuario_logado') %}
             <button class="btn-submit-comment" type="submit" id="buttonAvaliacao">Enviar</button>
@@ -87,7 +88,11 @@
                 <div class="review-content">
                     <div class="user-name">{{ comentario.usuario }}</div>
                     <p class="user-comment-text">{{ comentario.comentario }}</p>
-                    <span>{{ comentario.avaliacao }}☆</span>
+                    
+                    <div class="review-rating-display">
+                        <span>{{ comentario.avaliacao }}</span>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
             {% endfor %}
