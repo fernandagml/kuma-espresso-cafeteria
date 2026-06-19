@@ -73,19 +73,6 @@ a {
     gap: 35px;
 }
 
-
-.icones-usuario {
-    display: flex;
-    gap: 20px;
-}
-
-.icones-usuario a {
-    color: #ffffff;
-    font-size: 20px;
-    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
-}
-
-
 .dropdown {
     position: relative;
 }
@@ -250,4 +237,52 @@ footer {
 
 img.logo-footer{
     max-height: 150px;
+}
+
+
+
+/*REESTILIZAÇÃO ESTÉTICA PREMIUM: OLÁ USUÁRIO*/
+
+
+.icones-usuario {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.icones-usuario a {
+    color: #ffffff;
+    font-size: 20px;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
+}
+
+.icones-usuario .user {
+    color: #F8F3EE !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase; 
+    white-space: nowrap; 
+    opacity: 0.85; 
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+
+.icones-usuario .user:hover {
+    opacity: 1;
+    color: #D4B483 !important; 
+}
+
+
+.icones-usuario a i.fa-arrow-right-from-bracket {
+    color: rgba(248, 243, 238, 0.6) !important;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.icones-usuario a:hover i.fa-arrow-right-from-bracket {
+    color: #D4B483 !important;
+    transform: translateX(3px); 
 }
