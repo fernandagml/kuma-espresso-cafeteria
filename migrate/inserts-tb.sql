@@ -41,7 +41,10 @@ VALUES ("Café Preto", 8.90, "Café puro e encorpado, feito com grãos seleciona
         
         
 INSERT INTO tb_filtros (nome_filtro)
-VALUES ("Sem açucar"), ("Sem lactose"), ("Gelado"), ("Com leite"), ("Milkshake");
+VALUES ('Quente'), ('Gelado'), ("Sem Açúcar"), ("Sem Lactose"), ('Sem Glúten'), ("Com leite"), ("Descafeinado"), ("De frutas"), ("Ervas & Flores"), ("Detox"), ("Com nozes"), ("Com pedaços"), ('Com Chocolate');
 
 INSERT INTO tb_filtros_produtos (id_produto, id_filtro)
-VALUES (3, 4);
+VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7),
+(2, 3), (2, 4), (2, 5), (2, 8), (2, 11), (2, 13),
+(3, 1), (3, 2), (3, 8), (3, 9), (3, 10), 
+(4, 4), (4, 8), (4, 11), (4, 12), (4, 13);
