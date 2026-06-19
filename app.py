@@ -35,6 +35,9 @@ def pagina_como_chegar():
 def cadastrando():
     return render_template("cadastro.html")
 
+@app.route("/login")
+def autenticar():
+    return render_template("login.html")
 
 @app.route("/cadastro/post", methods=["POST"])
 def cadastro_usuario():
@@ -46,13 +49,9 @@ def cadastro_usuario():
     user = request.form.get("user")
 
     if cadastrar(nome, email_user, tel, end, senha, user):
-        return render_template("login.html")
+        return render_template("/login")
     else:
         return redirect("/")
-    
-@app.route("/login")
-def autenticar():
-    return render_template("login.html")
 
 @app.route("/login/post", methods=["POST"])
 def logar_usuario():
@@ -92,6 +91,11 @@ def comentar(id_produto):
 def pagina_catalogo():
     produtos = rp()
     return render_template("catalogo.html", produtos = produtos)
+
+@app.route("/filtros")
+def filtrar_produtos():
+    preco = request.form.get("preco")
+    filtro = request.form.get("")
 
 
 @app.route("/comentario/excluir/<id_comentario>/<id_produto>")
