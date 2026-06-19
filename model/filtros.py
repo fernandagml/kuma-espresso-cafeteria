@@ -20,11 +20,12 @@ def recuperar_filtros_por_categoria(id_categoria, preco = None, subcategoria = N
     try:
         conexao, cursor = conectar()
         busca = []
-        busca_base = """SELECT DISTINCT tb_filtros_produtos.id_filtro, tb_filtros_produtos.id_produto, tb_produtos.id_categoria, tb_filtros.nome_filtro, tb_produtos.preco_produto
+        busca_base = """SELECT tb_filtros_produtos.id_filtro, tb_filtros_produtos.id_produto, tb_produtos.id_categoria, tb_filtros.nome_filtro, tb_produtos.preco_produto
                         FROM tb_filtros_produtos
                         INNER JOIN tb_filtros ON tb_filtros_produtos.id_filtro = tb_filtros.id_filtro
                         INNER JOIN tb_produtos ON tb_produtos.id_produto = tb_filtros_produtos.id_produto
-                        WHERE id_categoria = %s"""
+                        WHERE id_categoria = %s
+                        GROUP BY tb_filtros.nome_filtro"""
         busca.append(id_categoria)
         if preco:
             valor = preco.split('-')
