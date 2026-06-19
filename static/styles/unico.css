@@ -383,14 +383,6 @@ color:#6B625C;
 margin:0;
 }
 
-.review-content::after{
-content:"★★★★★";
-display:block;
-margin-top:10px;
-font-size:14px;
-letter-spacing:2px;
-color:#D4B483;
-}
 
 @media(max-width:768px){
 
@@ -440,4 +432,68 @@ transition:.3s;
 .btn-voltar:hover{
 background:#683e25;
 color:#FFF;
+}
+
+
+.star-rating-input input[type="radio"] {
+    display: none !important;
+}
+
+.star-rating-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.star-icon {
+    font-size: 32px;
+    cursor: pointer;
+    color: #D8C7B4;
+    transition: .3s;
+}
+
+.star-icon:hover {
+    transform: translateY(-3px);
+    color: #D4B483;
+}
+
+/* ==========================================================================
+   CORREÇÃO CÍRCULO VERDE (REMOVIDO TOTALMENTE AS ESTRELAS FIXAS EXTRA)
+   ========================================================================== */
+/* O seletor antigo .review-content::after gerava o bug. Ele foi apagado daqui! */
+
+
+/* ==========================================================================
+   CORREÇÃO CÍRCULO AZUL (ESTRELA PADRÃO IGUAL ÀS DE CIMA E ALINHADA)
+   ========================================================================== */
+.review-rating-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* Espaço perfeito entre o número 5 e a estrela */
+    margin-top: 10px;
+    background: rgba(212, 180, 131, 0.1); /* Um fundinho sutil chic para a nota */
+    padding: 4px 10px;
+    border-radius: 99px;
+}
+
+.review-rating-display span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #8B5A2B; /* Tom marrom para o número */
+}
+
+.review-rating-display i {
+    font-size: 13px;
+    color: #D4B483; /* Dourado premium idêntico ao padrão superior */
+}
+
+
+/* Quando o botão de rádio for marcado (checked), muda a cor do ícone correspondente */
+.star-rating-input input[type="radio"]:checked + .star-icon {
+    color: #D4B483 !important;
+}
+
+/* Deixa as estrelas com a classe 'selected' (adicionada pelo JavaScript) com o tom dourado */
+.star-icon.selected {
+    color: #D4B483 !important;
 }
