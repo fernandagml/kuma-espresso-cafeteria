@@ -95,5 +95,13 @@ def pagina_catalogo():
     produtos = rp()
     return render_template("catalogo.html", produtos = produtos)
 
+
+@app.route("/comentario/excluir/<id_comentario>/<id_produto>")
+def deletar_comentario(id_comentario, id_produto):
+    if "usuario_logado" in session:
+        excluir_comentario(id_comentario)
+    
+    return redirect(f"/produto/{id_produto}")
+
 if __name__ == "__main__":
     app.run(debug=True)
