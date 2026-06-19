@@ -22,7 +22,7 @@
                 <div class="checkbox-group">
                     {% for filtro in filtros_por_categoria %}
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
+                        <input type="checkbox" class="custom-checkbox" name="{{ filtro.id_filtro }}">
                         <span>{{ filtro.nome_filtro }}</span>
                     </label>
                     {% endfor %}
@@ -33,24 +33,20 @@
                 <h3 class="section-title">Preços</h3>
                 <div class="checkbox-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Até R$ 50,00</span>
+                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <span>Até R$ 10,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>R$ 50,00 a R$ 100,00</span>
+                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <span>R$ 10,00 a R$ 20,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>R$ 100,00 a R$ 150,00</span>
+                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <span>R$ 20,00 a R$ 30,00</span>
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>R$ 150,00 a R$ 200,00</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" class="custom-checkbox">
-                        <span>Acima de R$ 200,00</span>
+                        <input type="checkbox" class="custom-checkbox" name="preco">
+                        <span>Mais de R$ 30,00</span>
                     </label>
                 </div>
             </div>
